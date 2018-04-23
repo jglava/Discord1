@@ -1,1 +1,1 @@
-Remember to use bots in a bot channel! Thank you.
+Remember to use bots in a bot channel! Thank you. 
