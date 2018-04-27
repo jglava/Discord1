@@ -1,0 +1,13 @@
+{
+  "name": "reply_bot",
+  "version": "0.0.1",
+  "description": "reply discord bot ",
+  "main": "replybot.js",
+  "author": "Josip Glavas",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "snekfetch": "^4.0.0",
+    "urban": "^0.3.1"
+  }
+}
