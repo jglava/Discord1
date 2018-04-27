@@ -36,7 +36,7 @@ client.on("ready", async () => {
 	} catch(e) {
 			console.log(e.stack);
 	}
-	client.user.setGame("little jews die.", 'https://www.twitch.tv/jglava_mc/');
+	client.user.setGame("little jews die. (help = help)", 'https://www.twitch.tv/jglava_mc/');
 });
 
 client.on("message", async message => {
