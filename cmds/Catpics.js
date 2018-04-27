@@ -1,5 +1,5 @@
 const snek = module.require("snekfetch");
-const api = "http://aws.random.cat/meow";
+const api = "https://aws.random.cat/meow";
 
 module.exports.run = async (client, message, args) => {
 	let msg = await message.channel.send("Generating...");
