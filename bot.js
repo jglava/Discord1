@@ -56,4 +56,4 @@ client.on("message", async message => {
 
 
 
-client.login(botSettings.token);
+client.login(process.env.BOT_TOKEN);
