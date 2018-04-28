@@ -39,6 +39,13 @@ client.on("ready", async () => {
 	client.user.setGame("little jews die. (help = help)", 'https://www.twitch.tv/jglava_mc/');
 });
 
+client.on('guildMemberAdd', member => {
+	const channel = member.guild.channels.find('name', 'member-log');
+	if (!channel) return;
+channel.send(`Welcome to the server, ${member}`);
+});
+	
+	
 client.on("message", async message => {
      if(message.author.bot) return;
      if(message.channel.type === "dm") return;
