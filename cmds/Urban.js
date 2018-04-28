@@ -3,7 +3,7 @@ const urban = module.require("urban");
 
 
 module.exports.run = async (client, message, args) => {
-	if(args.lenght < 1) return message.channel.send("Please enter a word to search for.");
+	if(args.length < 1) return message.channel.send("Please enter a word to search for.");
 	let str = args.join(" ");
 
 	urban(str).first(json => {
