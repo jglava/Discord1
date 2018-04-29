@@ -14,6 +14,6 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
 	name: "vote!",
-	description: "Simple voting system."
+	description: 'Simple vote system!'
 
 }

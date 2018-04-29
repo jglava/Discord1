@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
 	let file = (await snek.get(api)).body.file;
 	if(!file) return message.channel.send("Whoops! Something is wrong, try again!");
-
+	console.log(file);
 	await message.channel.send({files: [
 			{
 				attachment: file,

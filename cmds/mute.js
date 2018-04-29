@@ -7,11 +7,11 @@ module.exports.run = async (client, message, args) => {
 	if(toMute.id === message.author.id) return message.channel.send("You cannot mute yourself. -w-");
 	if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("You cannot mute a member who has a higher role than you do!");
 
-	let role = message.guild.roles.find(r => r.name === "Bot Muted");
+	let role = message.guild.roles.find(r => r.name === "Bot_Muted");
 	if(!role) {
 		try {
 			role = await message.guild.createRole({
-					name: "Bot Muted",
+					name: "Bot_Muted",
 					color: "#000000",
 					permission: []
 			});

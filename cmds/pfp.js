@@ -16,6 +16,7 @@ module.exports.run = async (client, message, args) => {
 	}
 
 module.exports.help = {
+
 	name: "pfp",
 	description: "sends (mentioned) user's profile picture" 
 
