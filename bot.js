@@ -1,7 +1,7 @@
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-
+//const anti_spam = require("discord-anti-spam"); 
  
  
 const prefix = botSettings.prefix;
@@ -27,13 +27,13 @@ fs.readdir("./cmds/", (err, files) => {
      });
 
 
-	anti_spam(client, {
+	/*anti_spam(client, {
  		warnBuffer: 1, 
  		maxBuffer: 10,
  		interval: 2000,
  		warningMessage: "stop spamming or I'll whack your head off.",
  		banMessage: "has been banned for spamming, anyone else?", 
- 	});
+ 	});*/
 
 
 }); 
