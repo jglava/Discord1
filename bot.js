@@ -1,7 +1,9 @@
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-
+const anti_spam = require("discord-anti-spam");
+ 
+ 
 const prefix = botSettings.prefix;
 
 const client = new Discord.Client({disableEveryone: true});
@@ -24,6 +26,16 @@ fs.readdir("./cmds/", (err, files) => {
           client.commands.set(props.help.name, props);
      });
 
+
+	anti_spam(client, {
+ 		warnBuffer: 1, 
+ 		maxBuffer: 10,
+ 		interval: 2000,
+ 		warningMessage: "stop spamming or I'll whack your head off.",
+ 		banMessage: "has been banned for spamming, anyone else?", 
+ 	});
+
+
 }); 
 
 client.on("ready", async () => {
@@ -36,7 +48,8 @@ client.on("ready", async () => {
 	} catch(e) {
 			console.log(e.stack);
 	}
-	client.user.setGame("little jews die. (help = help)", 'https://www.twitch.tv/jglava_mc/');
+	client.user.setActivity("$help for help");
+
 });
 
 client.on('guildMemberAdd', member => {
@@ -44,8 +57,7 @@ client.on('guildMemberAdd', member => {
 	if (!channel) return;
 channel.send(`Welcome to the server, ${member}`);
 });
-	
-	
+
 client.on("message", async message => {
      if(message.author.bot) return;
      if(message.channel.type === "dm") return;
@@ -56,11 +68,9 @@ client.on("message", async message => {
 
      if(!command.startsWith(prefix)) return;
 
-	let cmd = client.commands.get(command.slice(prefix.length).toLowerCase());
+     let cmd = client.commands.get(command.slice(prefix.length).toLowerCase());
      if (cmd) cmd.run(client, message, args);
 
 });
-
-
 
 client.login(process.env.BOT_TOKEN);
