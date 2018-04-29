@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
      		.setDescription(`${botSettings.prefix}game <name of the game without @ or $!>`)
      		.setColor("#b56959");
 
-     	message.channel.sendEmbed(embed);
+     	message.channel.send(embed);
 	}
 
 }
