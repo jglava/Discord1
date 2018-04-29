@@ -6,7 +6,9 @@
   "author": "Josip Glavas",
   "license": "ISC",
   "dependencies": {
+    "discord-anti-spam": "^1.1.1",
     "discord.js": "^11.3.2",
+    "random-puppy": "^1.1.0",
     "snekfetch": "^4.0.0",
     "urban": "^0.3.1"
   }
