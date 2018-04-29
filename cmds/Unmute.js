@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 	let toMute = message.mentions.members.first() || message.guild.members.get(args[0]);
 	if(!toMute) return message.channel.send("You didn't spicify a user or ID to unmute!");
 
-	let role = message.guild.roles.find(r => r.name === "Bot Muted");
+	let role = message.guild.roles.find(r => r.name === "Bot_Muted");
 
 	if(!role || !toMute.roles.has(role.id)) return message.channel.send("This user is not muted!");
 
