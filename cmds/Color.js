@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 	 message.channel.send(colors.array().join(" "));
 	let embed = new Discord.RichEmbed()
      		.setAuthor('Usage:')
-     		.setDescription(`${botSettings.prefix}color <name of the color without @ or #!>`)
+     		.setDescription('color <name of the color without @ or #!>')
      		.setColor("#616163");
 
      	message.channel.send(embed);
