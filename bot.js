@@ -1,8 +1,8 @@
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const anti_spam = require("discord-anti-spam"); 
- 
+const anti_spam = require("discord-anti-spam");
+const Music = require('discord.js-musicbot-addon');
  
 const prefix = botSettings.prefix;
 
@@ -36,6 +36,24 @@ fs.readdir("./cmds/", (err, files) => {
  	});
 
 
+ const music = new Music(client, {
+  youtubeKey: "AIzaSyDhuOq3M-MI-5VDS75E0UBsUZ1qzv2kezc",
+  prefix: "$",
+  global: true,           
+  maxQueueSize: 25,        
+  clearInvoker: true,
+  messageHelp: true,
+  enableQueueStat: true,     
+  helpCmd: 'mhelp',        
+  playCmd: 'play',        
+  volumeCmd: 'adjust',     
+  leaveCmd: 'stop',      
+  disableLoop: true  
+
+});
+
+
+
 }); 
 
 client.on("ready", async () => {
@@ -56,6 +74,9 @@ client.on('guildMemberAdd', member => {
 	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
 channel.send(`Welcome to the server, ${member}`);
+
+
+
 });
 
 client.on("message", async message => {
@@ -73,4 +94,7 @@ client.on("message", async message => {
 
 });
 
-client.login(process.env.BOT_TOKEN);
+
+
+
+client.login(botSettings.token);

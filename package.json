@@ -8,6 +8,10 @@
   "dependencies": {
     "discord-anti-spam": "^1.1.1",
     "discord.js": "^11.3.2",
+    "discord.js-musicbot-addon": "^1.10.3",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "npm": "^6.0.0",
+    "opusscript": "0.0.6",
     "random-puppy": "^1.1.0",
     "snekfetch": "^4.0.0",
     "urban": "^0.3.1"
