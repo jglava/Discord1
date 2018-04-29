@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 	 message.channel.send(games.array().join("\n"));
 	let embed = new Discord.RichEmbed()
      		.setAuthor('Usage:')
-     		.setDescription(`${botSettings.prefix}game <name of the game without @ or $!>`)
+     		.setDescription('game <name of the game without @ or $!>')
      		.setColor("#b56959");
 
      	message.channel.send(embed);
