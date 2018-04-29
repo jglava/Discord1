@@ -1,2 +1,2 @@
 worker: node bot.js
-npm i discord-anti-spam
+installnpm: npm i discord-anti-spam
