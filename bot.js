@@ -1,7 +1,7 @@
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const anti_spam = require("discord-anti-spam");
+
  
  
 const prefix = botSettings.prefix;
