@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   let embed = new Discord.RichEmbed()
   .setDescription(msg)
   .setColor('#0099cc');
-  message.channel.send('Help sent! Check DMs :Swastika:');
+  message.channel.send('Help sent! Check DMs, ni:b::b:a');
   message.author.send(embed).catch(() => {
     message.channel.send('An error occured');
   });
