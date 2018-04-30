@@ -66,7 +66,7 @@ client.on("ready", async () => {
 	} catch(e) {
 			console.log(e.stack);
 	}
-	client.user.setActivity("$help for help");
+	client.user.setActivity("type help | killing jews");
 
 });
 
