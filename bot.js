@@ -28,9 +28,9 @@ fs.readdir("./cmds/", (err, files) => {
 
 
 	anti_spam(client, {
- 		warnBuffer: 1, 
- 		maxBuffer: 10,
- 		interval: 2000,
+ 		warnBuffer: 2, 
+ 		maxBuffer: 15,
+ 		interval: 1000,
  		warningMessage: "stop spamming or I'll whack your head off.",
  		banMessage: "has been banned for spamming, anyone else?", 
  	});
@@ -40,7 +40,7 @@ fs.readdir("./cmds/", (err, files) => {
   youtubeKey: "AIzaSyDhuOq3M-MI-5VDS75E0UBsUZ1qzv2kezc",
   prefix: "$",
   global: true,           
-  maxQueueSize: 25,        
+  maxQueueSize: 100,        
   clearInvoker: true,
   messageHelp: true,
   enableQueueStat: true,     
