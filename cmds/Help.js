@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     msg = msg + `\n\n**${c.help.name}** - ${c.help.description}`;
   });
   msg = msg +`
-\n**For more help, go to psychotherapist **`;
+\n \nFor more help, go to **psychotherapist**`;
 
   let embed = new Discord.RichEmbed()
   .setDescription(msg)
