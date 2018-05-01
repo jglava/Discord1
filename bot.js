@@ -63,7 +63,7 @@ client.on("ready", async () => {
 	} catch(e) {
 			console.log(e.stack);
 	}
-	client.user.setActivity('$help');
+	client.user.setActivity('gassing jews || help');
 
 });
 
