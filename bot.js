@@ -1,13 +1,21 @@
+const talkedRecently = new Set();
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const anti_spam = require("discord-anti-spam");
 const Music = require('discord.js-musicbot-addon');
+
  
 const prefix = botSettings.prefix;
 
 const client = new Discord.Client({disableEveryone: true});
 client.commands = new Discord.Collection();
+
+const clean = text => {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
 
 fs.readdir("./cmds/", (err, files) => {
 	if(err) console.error(err);
@@ -27,20 +35,11 @@ fs.readdir("./cmds/", (err, files) => {
      });
 
 
-	anti_spam(client, {
- 		warnBuffer: 2, 
- 		maxBuffer: 15,
- 		interval: 1000,
- 		warningMessage: "stop spamming or I'll whack your head off.",
- 		banMessage: "has been banned for spamming, anyone else?", 
- 	});
-
-
  const music = new Music(client, {
   youtubeKey: "AIzaSyDhuOq3M-MI-5VDS75E0UBsUZ1qzv2kezc",
   prefix: "$",
   global: true,           
-  maxQueueSize: 100,        
+  maxQueueSize: 25,        
   clearInvoker: true,
   messageHelp: true,
   enableQueueStat: true,     
@@ -51,8 +50,6 @@ fs.readdir("./cmds/", (err, files) => {
   disableLoop: true  
 
 });
-
-
 
 }); 
 
@@ -66,7 +63,7 @@ client.on("ready", async () => {
 	} catch(e) {
 			console.log(e.stack);
 	}
-	client.user.setActivity("type help | killing jews");
+	client.user.setActivity('$help');
 
 });
 
@@ -74,8 +71,6 @@ client.on('guildMemberAdd', member => {
 	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
 channel.send(`Welcome to the server, ${member}`);
-
-
 
 });
 
@@ -92,9 +87,29 @@ client.on("message", async message => {
      let cmd = client.commands.get(command.slice(prefix.length).toLowerCase());
      if (cmd) cmd.run(client, message, args);
 
+     if (talkedRecently.has(message.author.id))
+  	return;
+
+  	talkedRecently.add(message.author.id);
+setTimeout(() => {
+  talkedRecently.delete(message.author.id);
+}, 5000);
+
+  if (message.content.startsWith(botSettings.prefix + "eval")) {
+    if(message.author.id !== botSettings.ownerID) return;
+    try {
+      const code = args.join(" ");
+      let evaled = eval(code);
+
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+
+      message.channel.send(clean(evaled), {code:"xl"});
+    } catch (err) {
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+  }
+
 });
 
-
-
-
-client.login(process.env.BOT_TOKEN);
+client.login(botSettings.token);
